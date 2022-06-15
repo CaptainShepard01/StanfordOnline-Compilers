@@ -44,7 +44,7 @@ extern YYSTYPE cool_yylval;
  */
 
 static int comments_stack;
-static int null_char_present;
+static bool null_char_present;
 static std::string current_string;
 
 %}
@@ -65,7 +65,7 @@ ALPHANUM        	[[:alnum:]_]
 TYPE_ID	        	[[:upper:]]{ALPHANUM}*
 OBJECT_ID       	[[:lower:]]{ALPHANUM}*
 QUOTE	        	\"
-HYPHEN	        	-
+HYPHEN	        	\-
 WHITESPACE      	[ \t\r\f\v]
 IF              	(?i:if)
 FI              	(?i:fi)
@@ -251,7 +251,7 @@ DARROW          	=>
 	    break;
 	default:
 	    current_string += ch;
-            break;
+        break;
     }
 }
 
